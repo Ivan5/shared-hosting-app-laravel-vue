@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::orderBy('categoryname')->get();
+        return view('category.index')->with('categories', $categories);
     }
 
     /**
@@ -24,7 +30,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
@@ -35,7 +41,23 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'categoryname' => 'required|max:255',
+        ]);
+
+        $category = new Category();
+        $category->categoryname = $request['categoryname'];
+        $category->slug = Str::slug($request['categoryname']); // change the ToBeSluggiefied
+        $latestSlug = Category::whereRaw("slug  RLIKE '^{$category->slug}(-[0-9]*)?$'")
+            ->latest('id')
+            ->value('slug');
+        if ($latestSlug) {
+            $pieces = explode('-', $latestSlug);
+            $number = intval(end($pieces));
+            $category->slug .= '-' . ($number + 1);
+        }
+        $category->save();
+        return redirect('/home');
     }
 
     /**
