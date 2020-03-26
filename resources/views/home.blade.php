@@ -12,14 +12,15 @@
                     <div>
                         <form class="inline-block" method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button type="submit">Logout</button>
+                            <button class="btn btn-warning" type="submit">Logout</button>
                         </form>
                     </div>
                 </div>
 
                 <div class="card-body">
                     <div class="d-flex align-items-between">
-                       <a class="btn btn-success w-50 m-1" href="{{ route('category.create')}}">Add new category</a> 
+                       <a class="btn btn-success w-50 m-1" href="{{ route('category.create')}}">Add new category</a>
+                       <a class="btn btn-success w-50 m-1" href="{{ route('category.index')}}">Show Categories</a> 
                     </div>
                     <div class="d-flex align-items-between">
                        <a class="btn btn-success w-50 m-1" href="{{ route('subcategory.create')}}">Add new Subcategory</a> 
