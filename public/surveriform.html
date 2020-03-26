@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Form</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+    body{
+      font-family: 'Poppins', sans-serif;
+      background-color: #05c46b;
+      text-align: center;
+      margin: 0;
+    }
+
+    form{
+      background-color: #fff;
+      box-shadow: 2px 5px 10px rgba(0,0,0,0.4);
+      border-radius: 2px;
+      padding: 30px 20px;
+      max-width: 450px;
+      margin:0 auto;
+    }
+
+    .form-control{
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .form-control label{
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .form-control input, .form-control select{
+      border: 1px solid #111;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 14px;
+      display: block;
+      width: 100%;
+      font-family: inherit;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">freeCodeCamp Survey Form</h1>
+  <p id="description">Thank you for taking the time to help us improve the platform</p>
+
+  <form action="" id="survey-form">
+    <div class="form-control">
+      <label for="name" id="label-name">Name</label>
+      <input type="text" id="name" placeholder="Enter your name">
+    </div>
+
+    <div class="form-control">
+      <label for="email" id="label-email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email">
+    </div>
+
+    <div class="form-control">
+      <label for="age" id="label-age">Age</label>
+      <input type="number" id="age" placeholder="Enter yout age">
+    </div>
+
+    <div class="form-control">
+      <label for="role" id="label-r">Role</label>
+      <select name="role" id="role">
+        <option value="student">Student</option>
+        <option value="full-time">Full-time</option>
+        <option value="part-time">Part-time</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+  </form>
+</body>
+</html>
