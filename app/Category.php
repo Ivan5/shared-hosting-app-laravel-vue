@@ -10,4 +10,9 @@ class Category extends Model
     {
         return $this->hasMany(Subcategory::class);
     }
+
+    public function Domains()
+    {
+        return $this->hasMany(Domain::class);
+    }
 }

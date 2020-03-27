@@ -4,7 +4,7 @@
       <div class="row py-5">
         <div class="w-100">
           <h3 class="text-center">Add yout Domain to our website and get backlink!</h3>
-          <domain-register />
+          <domain-register :categories='{{$categories}}' :subcategories='{{$subcategories}}'/>
         </div>
       </div>
 
